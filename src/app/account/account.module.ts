@@ -4,8 +4,9 @@ import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
 import { AccountCreateComponent } from './components/account-create/account-create.component';
 import { AccountListComponent } from './components/account-list/account-list.component';
-import { AccountService } from './service/account.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     InputTextModule,
     TableModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ButtonModule
   ],
   providers: []
 })

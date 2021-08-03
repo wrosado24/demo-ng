@@ -10,6 +10,7 @@
             <th>NAME</th>
             <th>EMAIL</th>
             <th>PASSWORD</th>
+            <th>Acciones</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-account>
@@ -18,6 +19,9 @@
             <td>{{account.name}}</td>
             <td>{{account.email}}</td>
             <td>{{account.password}}</td>
+            <td>
+                <button (click)="editAccount(account)">holaa</button>
+            </td>
         </tr>
     </ng-template>
 </p-table>
