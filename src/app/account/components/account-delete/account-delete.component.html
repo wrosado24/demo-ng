@@ -1,1 +1,5 @@
-<p>account-delete works!</p>
+<h1>¿Estas seguro de eliminar esta cuenta?</h1>
+<span style="font-weight: bold;">Nombre: </span> <span>{{name}}</span><br><br>
+<span style="font-weight: bold;">Email: </span> <span>{{email}}</span><br><br>
+<button pButton type="button" label="Eliminar cuenta" class="p-button-danger" (click)="deleteAccount()"></button>
+<button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="cancel()"></button>

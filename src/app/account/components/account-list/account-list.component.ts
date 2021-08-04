@@ -24,12 +24,17 @@ export class AccountListComponent implements OnInit {
   }
 
   editAccount(account: Account){
-    localStorage.setItem("id", account.id.toString());
+    localStorage.setItem("json", JSON.stringify(account));
     this.router.navigate(['account/update']);
   }
 
   deleteAccount(account: Account){
-    console.log(account);
+    localStorage.setItem("json", JSON.stringify(account));
+    this.router.navigate(['account/delete']);
+  }
+
+  redirectCreate(){
+    this.router.navigate(['account/create']);
   }
 
 }

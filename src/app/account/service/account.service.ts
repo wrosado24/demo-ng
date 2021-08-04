@@ -18,7 +18,7 @@ export class AccountService {
     //methods
     listAccounts(): Promise<Account[]>{
       return new Promise((resolve, reject) =>{
-        this.httpClient.get<Account[]>(this.baseUrl + 'accounts')
+        this.httpClient.get<Account[]>('/api/v1/accounts')
           .subscribe((response: Account[]) => {
             resolve(response),
             reject('Error')
@@ -28,7 +28,7 @@ export class AccountService {
   
     saveAccount(account: Account): Promise<Account>{
       return new Promise((resolve, reject) =>{
-        this.httpClient.post<Account>(this.baseUrl+'accounts', account)
+        this.httpClient.post<Account>('/api/v1/accounts', account)
         .subscribe((response: Account) =>{
           resolve(response),
           reject('Error')
@@ -39,7 +39,7 @@ export class AccountService {
   
     updateAccount(account: Account){
       return new Promise((resolve, reject) =>{
-        this.httpClient.put<Account>(this.baseUrl+'accounts', account)
+        this.httpClient.put<Account>('/api/v1/accounts', account)
         .subscribe((response: Account) =>{
           resolve(response),
           reject('Error')
@@ -47,10 +47,10 @@ export class AccountService {
       });
     }
   
-    deleteAccount(account: Account){
+    deleteAccount(id: number){
       return new Promise((resolve, reject) =>{
-        this.httpClient.put<Account>(this.baseUrl+'accounts', account)
-        .subscribe((response: Account) =>{
+        this.httpClient.delete<any>('/api/v1/accounts')
+        .subscribe((response: any) =>{
           resolve(response),
           reject('Error')
         });

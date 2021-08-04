@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AccountService } from '../../service/account.service';
 
 @Component({
@@ -14,9 +15,9 @@ export class AccountCreateComponent implements OnInit {
 
   constructor(private accountService: AccountService, private router:Router) { 
     this.accountForm = new FormGroup({
-      name: new FormControl,
-      email: new FormControl,
-      password: new FormControl
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     });
   }
 
@@ -26,7 +27,15 @@ export class AccountCreateComponent implements OnInit {
 
   async save(){
     const jsonForm = this.accountForm.value;
-    await this.accountService.saveAccount(jsonForm);
+    if(jsonForm.name != "" && jsonForm.email != "" && jsonForm.password != ""){
+      await this.accountService.saveAccount(jsonForm);
+      this.router.navigate(['account/list']);
+    }else{
+      Swal.fire('Tienes que completar todos los campos.');
+    }
+  }
+
+  cancel(){
     this.router.navigate(['account/list']);
   }
 
