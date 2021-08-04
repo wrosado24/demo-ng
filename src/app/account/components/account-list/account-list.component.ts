@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SortEvent } from 'primeng/api';
 import { Account } from '../../model/account.model';
 import { AccountService } from '../../service/account.service';
 
@@ -11,30 +12,52 @@ import { AccountService } from '../../service/account.service';
 export class AccountListComponent implements OnInit {
 
   accounts: Account[];
+  first = 0;
+  rows = 10;
 
   constructor(private accountService: AccountService, private router: Router) {
     this.accounts = [];
-   }
+  }
 
   async ngOnInit() {
     const response = await this.accountService.listAccounts();
-    if(response != null){
+    if (response != null) {
       this.accounts = response;
     }
   }
 
-  editAccount(account: Account){
+  editAccount(account: Account) {
     localStorage.setItem("json", JSON.stringify(account));
     this.router.navigate(['account/update']);
   }
 
-  deleteAccount(account: Account){
+  deleteAccount(account: Account) {
     localStorage.setItem("json", JSON.stringify(account));
     this.router.navigate(['account/delete']);
   }
 
-  redirectCreate(){
+  redirectCreate() {
     this.router.navigate(['account/create']);
+  }
+
+  next() {
+    this.first = this.first + this.rows;
+  }
+
+  prev() {
+    this.first = this.first - this.rows;
+  }
+
+  reset() {
+    this.first = 0;
+  }
+
+  isLastPage(): boolean {
+    return this.accounts ? this.first === (this.accounts.length - this.rows) : true;
+  }
+
+  isFirstPage(): boolean {
+    return this.accounts ? this.first === 0 : true;
   }
 
 }
