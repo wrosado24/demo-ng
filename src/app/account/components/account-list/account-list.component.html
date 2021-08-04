@@ -10,7 +10,7 @@
             <th>NAME</th>
             <th>EMAIL</th>
             <th>PASSWORD</th>
-            <th>Acciones</th>
+            <th style="text-align: center;">Acciones</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-account>
@@ -19,8 +19,9 @@
             <td>{{account.name}}</td>
             <td>{{account.email}}</td>
             <td>{{account.password}}</td>
-            <td>
-                <button (click)="editAccount(account)">holaa</button>
+            <td style="text-align: center;">
+                <span style="cursor:pointer;color:green;" (click)="editAccount(account)"><i class="pi pi-user-edit"></i></span>
+                <span style="cursor:pointer;color:red;" (click)="deleteAccount(account)"><i class="pi pi-trash"></i></span>
             </td>
         </tr>
     </ng-template>

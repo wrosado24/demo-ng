@@ -7,11 +7,15 @@ import { AccountListComponent } from './components/account-list/account-list.com
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
+import { AccountUpdateComponent } from './components/account-update/account-update.component';
+import { AccountDeleteComponent } from './components/account-delete/account-delete.component';
 
 @NgModule({
   declarations: [
     AccountCreateComponent,
-    AccountListComponent
+    AccountListComponent,
+    AccountUpdateComponent,
+    AccountDeleteComponent
   ],
   imports: [
     CommonModule,

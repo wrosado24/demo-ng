@@ -37,12 +37,24 @@ export class AccountService {
       
     }
   
-    updateAccount(){
-  
+    updateAccount(account: Account){
+      return new Promise((resolve, reject) =>{
+        this.httpClient.put<Account>(this.baseUrl+'accounts', account)
+        .subscribe((response: Account) =>{
+          resolve(response),
+          reject('Error')
+        });
+      });
     }
   
-    deleteAccount(){
-      
+    deleteAccount(account: Account){
+      return new Promise((resolve, reject) =>{
+        this.httpClient.put<Account>(this.baseUrl+'accounts', account)
+        .subscribe((response: Account) =>{
+          resolve(response),
+          reject('Error')
+        });
+      });
     }
 
 }

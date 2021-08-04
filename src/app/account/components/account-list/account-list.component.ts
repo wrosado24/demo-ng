@@ -25,7 +25,11 @@ export class AccountListComponent implements OnInit {
 
   editAccount(account: Account){
     localStorage.setItem("id", account.id.toString());
-    this.router.navigate(['account/create']);
+    this.router.navigate(['account/update']);
+  }
+
+  deleteAccount(account: Account){
+    console.log(account);
   }
 
 }

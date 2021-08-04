@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Route } from '@angular/router';
-import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 import { AccountService } from '../../service/account.service';
 
 @Component({
@@ -13,7 +12,7 @@ export class AccountCreateComponent implements OnInit {
 
   accountForm: FormGroup;
 
-  constructor(private accountService: AccountService) { 
+  constructor(private accountService: AccountService, private router:Router) { 
     this.accountForm = new FormGroup({
       name: new FormControl,
       email: new FormControl,
@@ -25,14 +24,10 @@ export class AccountCreateComponent implements OnInit {
     
   }
 
-  async saveAccount(){
-
+  async save(){
     const jsonForm = this.accountForm.value;
-
-    if(jsonForm != null){
-      await this.accountService.saveAccount(jsonForm);
-      window.location.href='account/list';
-    }
+    await this.accountService.saveAccount(jsonForm);
+    this.router.navigate(['account/list']);
   }
 
 }
