@@ -4,12 +4,13 @@ import { AccountCreateComponent } from './account/components/account-create/acco
 import { AccountDeleteComponent } from './account/components/account-delete/account-delete.component';
 import { AccountListComponent } from './account/components/account-list/account-list.component';
 import { AccountUpdateComponent } from './account/components/account-update/account-update.component';
+import {AuthGuard} from '@auth0/auth0-angular';
 
 const routes: Routes = [
-  {path: 'account/create', component: AccountCreateComponent},
-  {path: 'account/list', component: AccountListComponent},
-  {path: 'account/update', component: AccountUpdateComponent},
-  {path: 'account/delete', component: AccountDeleteComponent}
+  {path: 'account/create', component: AccountCreateComponent, canActivate: [AuthGuard]},
+  {path: 'account/list', component: AccountListComponent, canActivate: [AuthGuard]},
+  {path: 'account/update', component: AccountUpdateComponent, canActivate: [AuthGuard]},
+  {path: 'account/delete', component: AccountDeleteComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

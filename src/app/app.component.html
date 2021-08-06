@@ -1,1 +1,5 @@
+<div *ngIf="(auth.isAuthenticated$ | async)">
+    <h4>Hola: {{name}}</h4>
+    <button (click)="logout()" pButton type="button" label="Cerrar Sesión" class="p-button-danger"></button>
+</div>
 <router-outlet></router-outlet>
