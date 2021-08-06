@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SortEvent } from 'primeng/api';
+import { MessageService, SortEvent } from 'primeng/api';
 import { Account } from '../../model/account.model';
 import { AccountService } from '../../service/account.service';
 
 @Component({
   selector: 'app-account-list',
   templateUrl: './account-list.component.html',
-  styleUrls: ['./account-list.component.css']
+  styleUrls: ['./account-list.component.css'],
+  providers:[MessageService]
 })
 export class AccountListComponent implements OnInit {
 

@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import { AccountUpdateComponent } from './components/account-update/account-update.component';
 import { AccountDeleteComponent } from './components/account-delete/account-delete.component';
+import {ToastModule} from 'primeng/toast';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,10 @@ import { AccountDeleteComponent } from './components/account-delete/account-dele
     CommonModule,
     InputTextModule,
     TableModule,
+    ToastModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     ButtonModule
   ],
