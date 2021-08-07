@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlApi: 'http://api.test.asterisk360.com/api/v1/'
+  urlApi: 'https://api.test.asterisk360.com/api/v1/'
 };
 
 /*
