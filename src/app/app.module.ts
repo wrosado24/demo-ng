@@ -6,6 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { ButtonModule } from 'primeng/button';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { SharedModule } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -14,6 +18,7 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     AccountModule,
     ButtonModule,
     AuthModule.forRoot({
