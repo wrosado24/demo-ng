@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  nickname: string; 
+
+  constructor(private auth: AuthService) { 
+    this.nickname = "";
+    this.auth.user$.pipe(
+      tap(user=>{
+        if(user?.nickname != null){
+          this.nickname = user.nickname;
+        }
+      })
+    ).subscribe(data=>data);
+  }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.auth.logout();
   }
 
 }

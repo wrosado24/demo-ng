@@ -11,6 +11,7 @@ import { AccountUpdateComponent } from './components/account-update/account-upda
 import { AccountDeleteComponent } from './components/account-delete/account-delete.component';
 import {ToastModule} from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccountService } from './service/account.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     ButtonModule
   ],
-  providers: []
+  providers: [
+    AccountService
+  ]
 })
 export class AccountModule { }

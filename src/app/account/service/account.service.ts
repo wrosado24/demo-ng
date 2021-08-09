@@ -4,9 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Account } from '../model/account.model';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AccountService {
 
   baseUrl: string;

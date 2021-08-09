@@ -1,8 +1,8 @@
 
 <div class="card">
     <p-toast></p-toast>
-    <h1>Account List</h1>
-    <p-button (click)="redirectCreate()" label="Crear cuenta"></p-button><br><br>
+    <br><br>
+    <p-button (click)="redirectCreate()" label="Crear cuenta" class="card-body d-flex justify-content-between align-items-center"></p-button><br><br>
     <p-table [value]="accounts" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
         currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} registros" [rowsPerPageOptions]="[10,25,50]">
         <ng-template pTemplate="header">

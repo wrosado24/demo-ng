@@ -6,10 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { ButtonModule } from 'primeng/button';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { SharedModule } from 'primeng/api';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +15,8 @@ import { SharedModule } from 'primeng/api';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     AccountModule,
+    SharedModule,
     ButtonModule,
     AuthModule.forRoot({
       domain: 'wrosado24.us.auth0.com',
